@@ -1,0 +1,15 @@
+{
+  "prompts": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "message": "Project name"
+    }
+    ,"description": {
+      "type": "string",
+      "required": true,
+      "message": "Description"
+    }
+  },
+  "completeMessage": "Ready!"
+}

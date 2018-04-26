@@ -1,0 +1,28 @@
+{
+  "name": "nerv-template",
+  "version": "1.0.0",
+  "description": "A vue-cli template for a NERV(NodeJS,ExpressJS,RethinkDB,VueJS) application. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "./test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duiker101/nerv-template.git"
+  },
+  "keywords": [
+    "vue",
+    "express",
+    "rethinkdb",
+    "node"
+  ],
+  "author": "Simone Masiero <simone@duiker101.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/duiker101/nerv-template/issues"
+  },
+  "homepage": "https://github.com/duiker101/nerv-template#readme",
+  "dependencies": {
+    "vue-cli": "^2.9.3"
+  }
+}
