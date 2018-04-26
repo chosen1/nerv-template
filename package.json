@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/duiker101/nerv-template#readme",
   "dependencies": {
+    "npm": "^6.0.0",
     "vue-cli": "^2.9.3"
   }
 }
