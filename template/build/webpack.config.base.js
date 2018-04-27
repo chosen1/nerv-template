@@ -1,23 +1,25 @@
-const path = require("path");
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
 const webpack = require('webpack');
 
 const {VueLoaderPlugin} = require('vue-loader');
 const SaveHashes = require('assets-webpack-plugin');
 
+const config = require('./config.js')[NODE_ENV];
+
 module.exports = {
-    entry: [
-        './client/index.js'
-        , 'webpack-hot-middleware/client'
-    ]
-    , mode: 'development'
-    , output: {
-        path: path.join(__dirname, "public/dist/"),
-        publicPath: "/dist/",
-        filename: "[name].[hash].js",
-    }
-    , module: {
+    module: {
         rules: [
             {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    "babel-loader",
+                    "eslint-loader",
+                ]
+            }
+            , {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 exclude: ['node_modules']
@@ -39,16 +41,13 @@ module.exports = {
         },
         extensions: ['*', '.js', '.vue', '.json']
     }
-    , devServer: {inline: true}
-    , devtool: 'eval-source-map'
-
     , plugins: [
         new VueLoaderPlugin()
-        ,new webpack.HotModuleReplacementPlugin()
-        ,new SaveHashes({
-            path: path.join(__dirname, 'config')
+        , new webpack.HotModuleReplacementPlugin()
+        , new SaveHashes({
+            path: config.assets_path
         })
-        ,new webpack.DefinePlugin({
+        , new webpack.DefinePlugin({
             IS_DEV: JSON.stringify(true)
         })]
 };

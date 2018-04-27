@@ -11,5 +11,5 @@
       "message": "Description"
     }
   },
-  "completeMessage": "Ready!"
+  "completeMessage": "Ready! Run:\ncd {{name}}\nnpm install\nnpm run start:dev"
 }
